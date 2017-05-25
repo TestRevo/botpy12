@@ -21,3 +21,7 @@ def Germany(message):
         Germany = bot.send_photo(message.chat.id,'http://www.albiz.kiev.ua/COUNTRIES/071/CONTENT/Images/berlin.jpg',
 '''Что ж... Погнали дальше! Расскажи мне, какой город является столицей Германии?''',reply_markup=gm)
         bot.register_next_step_handler(Germany,trug)
+
+
+
+bot.send_message(message.chat.id,'Ваш результат: ', rez)

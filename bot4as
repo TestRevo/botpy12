@@ -1,0 +1,23 @@
+def tru(message):
+    if message.text == 'Москва':
+        ot = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        ot.add(*[types.KeyboardButton(name) for name in ['Погнали дальше!']])
+        tru = bot.send_photo(message.chat.id,'http://vdvbezheck.ru/pic/news/1435142016.jpg',
+'''Вау! Да ты красавчик! Знаешь программу первого класса. Да, я пожалуй похлопаю тебе!''',reply_markup=ot)
+        s = 0
+        s += 1
+        bot.register_next_step_handler(tru,Germany)
+    elif message.text == 'Санкт-Петербург' or 'Пермь' or 'Екатеринбург' or 'Ижевск' or 'Нижний Новгород':
+        o = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        o.add(*[types.KeyboardButton(name) for name in ['Погнали дальше!']])
+        non = bot.send_photo(message.chat.id,'http://ic.pics.livejournal.com/russianquestion/43024180/2154/2154_original.jpg',
+'''Ты что? Дурак совсем?? Элементарных вещей не знаешь!? Москва - столица России!''',reply_markup=o)
+        s += 0
+        bot.register_next_step_handler(non,Germany)
+def Germany(message):
+    if message.text == 'Погнали дальше!':
+        gm = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        gm.add(*[types.KeyboardButton(name) for name in ['Кельн','Гамбург','Мюнхен','Лоберг','Берлин','Штутгарт']])
+        Germany = bot.send_photo(message.chat.id,'http://www.albiz.kiev.ua/COUNTRIES/071/CONTENT/Images/berlin.jpg',
+'''Что ж... Погнали дальше! Расскажи мне, какой город является столицей Германии?''',reply_markup=gm)
+        bot.register_next_step_handler(Germany,trug)
